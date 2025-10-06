@@ -5,6 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>選択式問題 解答記録シート</title>
     <link rel="stylesheet" href="pico.min.css">
+    <style>
+        /* スマートフォン表示（幅が576px以下）の際に適用されるスタイル */
+        @media (max-width: 576px) {
+            /* 解答欄の選択肢を2カラムで表示する */
+            #questions-container fieldset.grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.5rem; /* 選択肢間の余白を少し狭くする */
+            }
+        }
+    </style>
 </head>
 <body>
     <main class="container">
