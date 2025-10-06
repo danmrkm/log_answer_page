@@ -3,24 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>選択式問題 解答記録シート</title>
+    <title>選択式試験 解答記録シート</title>
     <link rel="stylesheet" href="pico.min.css">
     <style>
         /* スマートフォン表示（幅が576px以下）の際に適用されるスタイル */
         @media (max-width: 576px) {
             /* 解答欄の選択肢を2カラムで表示する */
-            #questions-container fieldset.grid {
+            fieldset.grid {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 0.5rem; /* 選択肢間の余白を少し狭くする */
             }
+        }
+        /* 正解設定の選択肢を少しコンパクトにする */
+        #answer-key-container fieldset {
+            padding: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        #answer-key-container header {
+            padding: 0.5rem 0;
         }
     </style>
 </head>
 <body>
     <main class="container">
         <header>
-            <h1>選択式問題 解答記録シート</h1>
-            <p>問題数と選択肢の形式を設定し、解答を記録します。</p>
+            <h1>選択式試験 解答記録シート</h1>
+            <p>問題数と選択肢を設定し、解答を記録・採点します。</p>
         </header>
 
         <details open>
@@ -46,17 +54,22 @@
             <button id="generate-btn">解答欄を生成</button>
         </details>
 
-        <section id="questions-container">
-            </section>
+        <details id="answer-key-details" style="display: none;">
+            <summary><strong>正解の設定</strong>（クリックで開閉）</summary>
+            <div id="answer-key-container">
+                </div>
+        </details>
+
+        <section id="questions-container"></section>
 
         <section id="result-section" style="display: none;">
-            <h2>現在の解答</h2>
+            <h2 id="score-header">点数: <span id="score-display">0</span> / 100</h2>
+            <h2>採点結果</h2>
             <pre><code id="answers-display"></code></pre>
-            <button id="copy-btn" class="secondary">クリップボードにコピー</button>
+            <button id="copy-btn" class="secondary">結果をコピー</button>
         </section>
 
     </main>
-
     <script src="script.js"></script>
 </body>
 </html>
