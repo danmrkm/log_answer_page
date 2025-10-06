@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>選択式問題 解答記録シート</title>
+    <link rel="stylesheet" href="pico.min.css">
+</head>
+<body>
+    <main class="container">
+        <header>
+            <h1>選択式問題 解答記録シート</h1>
+            <p>問題数と選択肢の形式を設定し、解答を記録します。</p>
+        </header>
+
+        <details open>
+            <summary><strong>設定</strong></summary>
+            <div class="grid">
+                <label for="question-count">
+                    問題数
+                    <input type="number" id="question-count" name="question-count" value="20" min="1">
+                </label>
+                <label for="option-type">
+                    選択肢の種類
+                    <select id="option-type" name="option-type">
+                        <option value="number">数字 (1, 2, 3...)</option>
+                        <option value="alpha">アルファベット (A, B, C...)</option>
+                        <option value="kana">カタカナ (ア, イ, ウ...)</option>
+                    </select>
+                </label>
+                <label for="option-count">
+                    選択肢の数
+                    <input type="number" id="option-count" name="option-count" value="4" min="2" max="10">
+                </label>
+            </div>
+            <button id="generate-btn">解答欄を生成</button>
+        </details>
+
+        <section id="questions-container">
+            </section>
+
+        <section id="result-section" style="display: none;">
+            <h2>現在の解答</h2>
+            <pre><code id="answers-display"></code></pre>
+            <button id="copy-btn" class="secondary">クリップボードにコピー</button>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
